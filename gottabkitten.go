@@ -103,6 +103,8 @@ func Impurrove(content string) string {
 	}
 
 	converted := strings.Join(newWords, " ")
+
 	fmt.Println(converted)
+
 	return converted
 }
