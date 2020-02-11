@@ -1,7 +1,6 @@
 package gottabkitten
 
 import (
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -27,25 +26,25 @@ type commonWords struct {
 	LetterGroups    []wordPair `yaml:"letterGroups"`
 }
 
-func main() {
-	sourceFile := flag.String("input", "", "Specify an input file with text to read from. If not supplied, expects sourceText")
-	sourceText := flag.String("text", "", "Text to be used. If not specified, sourceFile is expected. SourceFile takes precendence.")
-	flag.Parse()
+// func main() {
+// 	sourceFile := flag.String("input", "", "Specify an input file with text to read from. If not supplied, expects sourceText")
+// 	sourceText := flag.String("text", "", "Text to be used. If not specified, sourceFile is expected. SourceFile takes precendence.")
+// 	flag.Parse()
 
-	if len(*sourceFile) == 0 && len(*sourceText) == 0 {
-		fmt.Println("You must specify either a source file or source text")
-		os.Exit(1)
-	}
+// 	if len(*sourceFile) == 0 && len(*sourceText) == 0 {
+// 		fmt.Println("You must specify either a source file or source text")
+// 		os.Exit(1)
+// 	}
 
-	var textContent string
-	if len(*sourceFile) > 0 {
-		textContent = string(readSourceFile(*sourceFile))
-	} else {
-		textContent = *sourceText
-	}
+// 	var textContent string
+// 	if len(*sourceFile) > 0 {
+// 		textContent = string(readSourceFile(*sourceFile))
+// 	} else {
+// 		textContent = *sourceText
+// 	}
 
-	Impurrove(textContent)
-}
+// 	Impurrove(textContent)
+// }
 
 func readSourceFile(fileSrc string) []byte {
 	file, err := os.OpenFile(fileSrc, os.O_RDONLY, 0755)
