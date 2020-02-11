@@ -1,4 +1,4 @@
-package main
+package gottabkitten
 
 import (
 	"flag"
@@ -44,7 +44,7 @@ func main() {
 		textContent = *sourceText
 	}
 
-	makeTextPunny(textContent)
+	Impurrove(textContent)
 }
 
 func readSourceFile(fileSrc string) []byte {
@@ -64,7 +64,7 @@ func readSourceFile(fileSrc string) []byte {
 
 func parseYAML() commonWords {
 	var baseWords commonWords
-	file, err := os.OpenFile("gottaBkitten.yaml", os.O_RDONLY, 0755)
+	file, err := os.OpenFile("gottabkitten.yaml", os.O_RDONLY, 0755)
 	if err != nil {
 		panic(fmt.Errorf("I couldn't open the YAML file to get it's content. Got this error:\n%v", err))
 	}
@@ -96,7 +96,8 @@ func setCapitalization(origWord, impurrovedWord string) string {
 	return impurrovedWord
 }
 
-func makeTextPunny(content string) {
+// Impurrove takes text content and makes it punny
+func Impurrove(content string) {
 	commonWords := parseYAML()
 	words := strings.Split(content, " ")
 	var newWords []string
